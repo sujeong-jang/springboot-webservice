@@ -9,17 +9,23 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Getter
-@Setter
 @ToString
 @NoArgsConstructor
 public class Customer implements Serializable {
     private static final long serialVersionUID = 4577239542252345341L;
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="customer_id")
-    private Long id;
+    private long id;
 
     @Column(name="firstname")
     private String firstName;
@@ -31,4 +37,5 @@ public class Customer implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
 }
